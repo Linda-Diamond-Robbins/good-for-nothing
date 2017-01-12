@@ -27,12 +27,10 @@ end
 puts "Done!"
 
 users = User.all
-random_challenge = Challenge.find_by(id: rand(Challenge.all.length))
 
 users.each do |user|
-  #challenge_id_array = Challenge.where.not(user_id: user.id).pluck(:id)
-  #challenge_id_array.shuffle.pop)
   3.times do 
+    random_challenge = Challenge.find_by(id: rand(Challenge.all.length))
     UserChallenge.create(user_id: user.id, challenge_id: random_challenge.id)
   end
 end

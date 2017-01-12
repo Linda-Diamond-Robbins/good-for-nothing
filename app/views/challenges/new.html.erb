@@ -1,0 +1,30 @@
+<h1>Create Your Own Good For Nothing...</h1>
+
+<h2>What is the title of your Good For Nothing challenge?:</h2> 
+
+
+<h1>Create Your Own Good For Nothing</h1>
+
+<% if current_user %>
+  <%= form_tag "/challenges", method: :post do %>
+
+    <div>
+      <%= label_tag :title %>
+      <%= text_field_tag :title, @challenge.title %>
+    </div>
+
+    <div>
+      <%= label_tag :description %>
+      <%= text_field_tag :description, @challenge.description %>
+    </div> 
+
+    <div>
+    <%= submit_tag "Create My Challenge!" %>
+    </div>
+
+  <% end %>
+<% else %>
+  <p>Please log in to create a challenge! </p>
+<% end %>  
+
+

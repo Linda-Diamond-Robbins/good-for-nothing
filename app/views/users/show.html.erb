@@ -1,0 +1,14 @@
+<h3>User Show Page (Profile!)</h3>
+
+<h1>User id: <%= @user.id%></h1>
+<h1>User name: <%= @user.name%></h1>
+
+<h3>Challenges I've Accepted:</h3>
+
+<% @user_challenges.each do |user_challenge| %>
+<h3>Title of challenge: <%= user_challenge.title %></h3>
+  <ul>
+    <li><h3>Description of challenge: <%= user_challenge.description %></h3></li>
+  </ul>
+
+<% end %>

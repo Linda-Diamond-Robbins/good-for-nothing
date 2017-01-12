@@ -1,0 +1,12 @@
+<% @user_challenges.each do |user_challenge| %>
+
+  <h2>Title: <%= user_challenge.title %></h2>
+  <h4>Description: <%= user_challenge.description %></h4>
+  <ul>
+    <li> User Challenge id:<%= user_challenge.id %></li>
+    <li>User id (the user that accepted this challenge): <%= user_challenge.user_id %></li>
+    <li>Challenge id (the id of the challenge the user clicked on to accept the challege): <%= user_challenge.challenge_id %></li>
+    <li>Results Reflection: <%= user_challenge.results_reflection %></li>
+  </ul>
+<% end %>
+

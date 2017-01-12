@@ -1,0 +1,18 @@
+<h1>Your Challenge Should You Choose To Accept It!</h1>
+<section>
+<h2><a href="/challenges/new">Create Your Own Good For Nothing</a></h2>
+  <div class="row">
+    <% @challenges.each do |challenge| %>
+
+    <div class="col-sm-4">
+     <div class="challenge_single">
+       <h2 class="challenge_header"></h2>
+       <p><%= challenge.title %></p>
+       <p>Decription: <%= challenge.description %></p>
+
+       <a href="/challenges/<%= challenge.id %>">Link To Show Page For Each Individual Challenge</a>
+       </div>
+     </div>
+     <% end %>
+     </div>
+ </section>

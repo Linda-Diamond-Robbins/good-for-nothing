@@ -1,0 +1,34 @@
+<h1>Good For Nothing...</h1>
+<h1>Challenge ID:</h1> 
+<h2><%= @challenge.id %></h2> 
+<h1>Challenge Title:</h1> 
+<h2><%= @challenge.title %></h2>
+<p> <%= @challenge.description %></p>
+<p>Public? <%= @challenge.public %></p>
+<p>Created by user <%= @challenge.user_id %></p>
+
+
+<% if current_user %>
+  <%= form_tag "/user_challenges", method: :post do %>
+
+    <div>
+      <%= hidden_field_tag :challenge_id, @challenge.id %>
+    </div>
+    <div>
+      <%= hidden_field_tag :title, @challenge.title %>
+    </div>
+    <div>
+      <%= hidden_field_tag :description, @challenge.description %>
+    </div>
+    <div>
+      <%= hidden_field_tag :user_id, current_user.id %>
+    </div>  
+    <div>
+    <%= submit_tag "Accept Challenge!" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Please log in to accept this challenge! </p>
+<% end %>  
+
+<h1>Create Your Own Good For Nothing</h1>
