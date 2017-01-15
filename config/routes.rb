@@ -32,4 +32,10 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
 
+  namespace :api do 
+    namespace :v1 do
+      get '/challenges' => 'challenges#index'
+    end
+  end
+
 end

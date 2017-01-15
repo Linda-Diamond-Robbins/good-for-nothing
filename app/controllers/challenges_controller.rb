@@ -2,6 +2,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.all
+    @categories = Category.all
     render 'index.html.erb'
   end
 

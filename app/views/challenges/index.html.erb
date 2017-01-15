@@ -1,4 +1,7 @@
-<h1>Your Challenge Should You Choose To Accept It!</h1>
+<div ng-app="app">
+  <div ng-controller="challengesCtrl" ng-init="setup()">
+  
+  <h1>Your Challenge Should You Choose To Accept It!</h1>
       <!-- main-container start -->
       <!-- ================ -->
       <section class="main-container">
@@ -21,16 +24,15 @@
               <div class="filters">
                 <ul class="nav nav-pills">
                   <li class="active"><a href="#" data-filter="*">All</a></li>
-                  <li><a href="#" data-filter=".web-design">Web design</a></li>
-                  <li><a href="#" data-filter=".app-development">App development</a></li>
-                  <li><a href="#" data-filter=".site-building">Site building</a></li>
+                  <% @categories.each do |category| %>  
+                    <li><a href="#" data-filter=".<%= category.name %>"><%= category.name %></a></li>
+                  <% end %>
                 </ul>
               </div>
               <!-- isotope filters end -->
 
               <div class="isotope-container-fitrows row grid-space-10">
-                <% @challenges.each do |challenge| %>
-                  <div class="col-sm-6 col-md-4 isotope-item web-design">
+                  <div class="col-sm-6 col-md-4 isotope-item web-design" ng-repeat="challenge in challenges">
                     <div class="image-box style-2 mb-20 bordered dark-bg">
                       <div id="carousel-portfolio" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -63,15 +65,14 @@
                         </div>
                       </div>
                       <div class="body">
-                        <h3><%= challenge.title %></h3>
+                        <h3>{{ challenge.title }}</h3>
                         <div class="separator-2"></div>
-                        <p class="small mb-10"><i class="icon-calendar"></i> <%= challenge.created_at %> <i class="pl-10 icon-tag-1"></i> Web Design</p>
-                        <p class="text-muted"><%= challenge.description %></p>
-                        <a href="/challenges/<%= challenge.id %>" class="btn btn-gray-transparent btn-animated btn-sm margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                        <p class="small mb-10"><i class="icon-calendar"></i>{{ challenge.created_at }} <i class="pl-10 icon-tag-1"></i> Web Design</p>
+                        <p class="text-muted">{{ challenge.description }}</p>
+                        <a href="/challenges/{{ challenge.id }}" class="btn btn-gray-transparent btn-animated btn-sm margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
                       </div>
                     </div>
                   </div>
-                <% end %>
               </div>
 
             </div>
@@ -81,4 +82,6 @@
         </div>
       </section>
       <!-- main-container end -->
+  </div>
+</div>
       
