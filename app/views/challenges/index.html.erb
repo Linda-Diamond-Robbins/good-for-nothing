@@ -1,18 +1,84 @@
 <h1>Your Challenge Should You Choose To Accept It!</h1>
-<section>
-<h2><a href="/challenges/new">Create Your Own Good For Nothing</a></h2>
-  <div class="row">
-    <% @challenges.each do |challenge| %>
+      <!-- main-container start -->
+      <!-- ================ -->
+      <section class="main-container">
 
-    <div class="col-sm-4">
-     <div class="challenge_single">
-       <h2 class="challenge_header"></h2>
-       <p><%= challenge.title %></p>
-       <p>Decription: <%= challenge.description %></p>
+        <div class="container">
+          <div class="row">
 
-       <a href="/challenges/<%= challenge.id %>">Link To Show Page For Each Individual Challenge</a>
-       </div>
-     </div>
-     <% end %>
-     </div>
- </section>
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-12">
+
+              <!-- page-title start -->
+              <!-- ================ -->
+              <h1 class="page-title">Grid 3 - 3 columns</h1>
+              <div class="separator-2"></div>
+              <!-- page-title end -->
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p>
+
+              <!-- isotope filters start -->
+              <div class="filters">
+                <ul class="nav nav-pills">
+                  <li class="active"><a href="#" data-filter="*">All</a></li>
+                  <li><a href="#" data-filter=".web-design">Web design</a></li>
+                  <li><a href="#" data-filter=".app-development">App development</a></li>
+                  <li><a href="#" data-filter=".site-building">Site building</a></li>
+                </ul>
+              </div>
+              <!-- isotope filters end -->
+
+              <div class="isotope-container-fitrows row grid-space-10">
+                <% @challenges.each do |challenge| %>
+                  <div class="col-sm-6 col-md-4 isotope-item web-design">
+                    <div class="image-box style-2 mb-20 bordered dark-bg">
+                      <div id="carousel-portfolio" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators bottom margin-clear">
+                          <li data-target="#carousel-portfolio" data-slide-to="0" class="active"></li>
+                          <li data-target="#carousel-portfolio" data-slide-to="1"></li>
+                          <li data-target="#carousel-portfolio" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                          <div class="item active">
+                            <div class="overlay-container overlay-visible">
+                              <img src="/images/portfolio-1.jpg" alt="">
+                              <a href="portfolio-item.html" class="overlay-link"><i class="fa fa-link"></i></a>             
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="overlay-container overlay-visible">
+                              <img src="/images/portfolio-1-2.jpg" alt="">
+                              <a href="portfolio-item.html" class="overlay-link"><i class="fa fa-link"></i></a>             
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="overlay-container overlay-visible">
+                              <img src="/images/portfolio-1-3.jpg" alt="">
+                              <a href="portfolio-item.html" class="overlay-link"><i class="fa fa-link"></i></a>             
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="body">
+                        <h3><%= challenge.title %></h3>
+                        <div class="separator-2"></div>
+                        <p class="small mb-10"><i class="icon-calendar"></i> <%= challenge.created_at %> <i class="pl-10 icon-tag-1"></i> Web Design</p>
+                        <p class="text-muted"><%= challenge.description %></p>
+                        <a href="/challenges/<%= challenge.id %>" class="btn btn-gray-transparent btn-animated btn-sm margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+
+            </div>
+            <!-- main end -->
+
+          </div>
+        </div>
+      </section>
+      <!-- main-container end -->
+      
