@@ -1,3 +1,32 @@
-<div ng-app="app">
-<!--   {{ 1 + 1 }} -->
+<!-- banner start -->
+<!-- ================ -->
+<div class="pv-40 dark-translucent-bg" style="background-image: url(images/wedding-banner.jpg);background-position: 50% 32%;">
+  <div class="container pv-40">
+    <div class="row">
+      <div class="col-md-8 text-center col-md-offset-2 pv-40">
+        <div class="object-non-visible pv-40" data-animation-effect="fadeIn" data-effect-delay="100">
+          <h1 class="page-title text-center logo-font">Good Done</h1>
+          <div class="separator"></div>
+          <h3 class="text-center"><em>challenges completed to date</em></h3>
+          <!-- countdown start -->
+          <!-- <div class="countdown clearfix"><div class="countdown-section" style="float: none;">45</div></div> -->
+          <!-- countdown end -->
+          <br>
+          <div class="challenge-countdown">
+            <span class="challenge-value"><%= Challenge.count %></span><br>
+            <span class="challenge-value-caption cursive">created</span>
+          </div>
+          <div class="challenge-countdown">
+             <span class="challenge-value">45</span><br>
+             <span class="challenge-value-caption cursive">accepted</span>
+          </div>
+          <div class="challenge-countdown">
+             <span class="challenge-value">45</span><br>
+             <span class="challenge-value-caption cursive">completed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- banner end -->

@@ -1,30 +1,36 @@
-<h1>Create Your Own Good For Nothing...</h1>
-
-<h2>What is the title of your Good For Nothing challenge?:</h2> 
-
-
-<h1>Create Your Own Good For Nothing</h1>
-
 <% if current_user %>
-  <%= form_tag "/challenges", method: :post do %>
-
-    <div>
-      <%= label_tag :title %>
-      <%= text_field_tag :title, @challenge.title %>
+   
+  <div class="section dark-bg text-muted negative-margins">
+    <div class="container">
+      <h2>Create Your Own Challenge!</h2>
+      
+      <%= form_tag "/challenges", role: "form", method: :post do %>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="inputSuccess4">Title</label>
+              <%= text_field_tag :title, "", class: "form-control", id: "inputSuccess4" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="inputWarning4">Description</label>
+              <%= text_field_tag :description, "", class: "form-control", id: "inputWarning4" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="inputError4">Input with error</label>
+              <input type="text" class="form-control" id="inputError4">
+              <i class="fa fa-times form-control-feedback"></i>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gray">Submit</button>
+      <% end %>
     </div>
-
-    <div>
-      <%= label_tag :description %>
-      <%= text_field_tag :description, @challenge.description %>
-    </div> 
-
-    <div>
-    <%= submit_tag "Create My Challenge!" %>
-    </div>
-
-  <% end %>
+  </div>
 <% else %>
   <p>Please log in to create a challenge! </p>
 <% end %>  
-
 

@@ -1,7 +1,43 @@
 <div ng-app="app">
   <div ng-controller="challengesCtrl" ng-init="setup()">
   
-  <h1>Your Challenge Should You Choose To Accept It!</h1>
+  <h1 class="cursive-50 text-center">Challenges</h1>
+
+      <% if current_user %>
+        <div class="section dark-bg text-muted negative-margins">
+          <div class="container">
+            <h3>Don't see a challenge you like? Create your own!</h3>
+            
+            <%= form_for(@challenge) do |f| %>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Title</label>
+                    <%= f.text_field :title,class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Description</label>
+                    <%= f.text_field :description, class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Categories</label>
+                    <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, {:prompt => 'Select Categories', class: "chosen-select", multiple: true 
+                      }) %>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-gray">Submit</button>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <p>Please log in to create a challenge! </p>
+      <% end %>  
+
       <!-- main-container start -->
       <!-- ================ -->
       <section class="main-container">
@@ -15,24 +51,24 @@
 
               <!-- page-title start -->
               <!-- ================ -->
-              <h1 class="page-title">Grid 3 - 3 columns</h1>
-              <div class="separator-2"></div>
+              <!-- <h1 class="page-title">Good. For Nothing</h1>
+              <div class="separator-2"></div> -->
               <!-- page-title end -->
-              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p>
+              <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p> -->
 
               <!-- isotope filters start -->
               <div class="filters">
                 <ul class="nav nav-pills">
                   <li class="active"><a href="#" data-filter="*">All</a></li>
-                  <% @categories.each do |category| %>  
-                    <li><a href="#" data-filter=".<%= category.name %>"><%= category.name %></a></li>
+                  <% @categories.each do |category| %>
+                     <li><a href="#" data-filter=".<%= category.nospace_name %>"><%= category.name %></a></li>
                   <% end %>
                 </ul>
               </div>
               <!-- isotope filters end -->
 
               <div class="isotope-container-fitrows row grid-space-10">
-                  <div class="col-sm-6 col-md-4 isotope-item web-design" ng-repeat="challenge in challenges">
+                  <div class="col-sm-6 col-md-4 isotope-item {{ challenge.category_list }}" ng-repeat="challenge in challenges | filter: challengeFilter" >
                     <div class="image-box style-2 mb-20 bordered dark-bg">
                       <div id="carousel-portfolio" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -85,3 +121,12 @@
   </div>
 </div>
       
+<script>
+  $(function(){
+      $(".chosen-select").chosen();
+  });
+
+  $(document).ready(function(){
+    $(".chosen-select").css("width", "100%");
+  });      
+</script>

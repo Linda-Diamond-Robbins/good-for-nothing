@@ -2,6 +2,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.all
+    @challenge = Challenge.new
     @categories = Category.all
     render 'index.html.erb'
   end
@@ -17,12 +18,10 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    @challenge = Challenge.new(id: params[:id],
-      title: params[:title], 
-      description: params[:description],
-      user_id: current_user.id,
-      )
+    @challenge = Challenge.new(challege_params)
+    
     if @challenge.save 
+      p @challenge.errors.full_messages
       flash[:success] = "Challenge successfully created!"
       redirect_to "/challenges/#{@challenge.id}"
     else
@@ -32,11 +31,7 @@ class ChallengesController < ApplicationController
 
   def update
     @challenge = Challenge.find_by(id: params[:id])
-    @challenge.title = params[:title]
-    @challenge.description = params[:description]
-    @challenge.public = params[:public]
-    @challenge.user_id = params[:user_id]
-    @challenge.save
+    @challenge.update(challege_params) 
     render 'update.html.erb' 
   end
   
@@ -48,5 +43,11 @@ class ChallengesController < ApplicationController
   def destroy
     @challenge
     render 'destroy.html.erb' 
+  end
+
+  private
+
+  def challege_params
+    params.require(:challenge).permit(:title, :description, :public, :user_id, category_ids:[])
   end
 end

@@ -20,7 +20,7 @@ class UserChallengesController < ApplicationController
       )
     if @user_challenge.save
       flash[:success] = "User Challenge successfully created!"
-      redirect_to "/user_challenges/{#{@user_challenge.id}"
+      redirect_to "/users/#{current_user.id}"
       else
         render 'new.html.erb'
     end

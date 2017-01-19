@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require chosen.jquery.min
+//= require chosen.proto.min
 //= require app
 //= require_tree .

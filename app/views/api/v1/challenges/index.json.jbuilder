@@ -3,4 +3,9 @@ json.array! @challenges.each do |challenge|
   json.title challenge.title
   json.description challenge.description
   json.created_at challenge.created_at
+  json.category_list challenge.cat_list
+  json.categories challenge.categories.each do |category|
+    json.id category.id
+    json.name category.name
+  end
 end
