@@ -9,6 +9,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find_by(id: params[:id])
+    @challenge_form = ChallengeForm.new
     render 'show.html.erb'
   end
 
@@ -18,7 +19,7 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    @challenge = Challenge.new(challege_params)
+    @challenge = Challenge.new(challenge_params)
     
     if @challenge.save 
       p @challenge.errors.full_messages
@@ -45,9 +46,21 @@ class ChallengesController < ApplicationController
     render 'destroy.html.erb' 
   end
 
+  def send_challenge
+    challenge_email = ChallengeForm.new(params[:challenge_form])
+    if challenge_email.deliver
+      flash[:success] = "Good is on it's way!"
+      redirect_to "/challenges"
+    else 
+      p challenge_email.errors
+      flash[:warning] = "Email message failed to send. Try again!"
+      redirect_to "/challenges"
+    end
+  end
+
   private
 
-  def challege_params
+  def challenge_params
     params.require(:challenge).permit(:title, :description, :public, :user_id, category_ids:[])
   end
 end

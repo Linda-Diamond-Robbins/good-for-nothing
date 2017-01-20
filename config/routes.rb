@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/challenges/:id/edit' => 'challenges#edit'
   patch '/challenges/:id' => 'challenges#update'
   delete '/challenges/:id' => 'challenges#destroy'
+  post '/send-challenge' => 'challenges#send_challenge'
 
 
   get '/login' => 'sessions#new'
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
   delete '/users/:id' => 'users#destroy'
 
   get '/signup' => 'users#new'
+
+  post '/posts' => 'posts#create'
 
   namespace :api do 
     namespace :v1 do

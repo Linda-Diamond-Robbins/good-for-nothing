@@ -13,8 +13,12 @@
 <h3>Challenges I've Accepted:</h3>
 
 <% @user_challenges.each do |user_challenge| %>
-  <h3>Title of challenge: <%= user_challenge.title %></h3>
-  <h4>Status: <%= user_challenge.status %></h4>
+  <div class="well">
+    <h3>Title of challenge: <%= user_challenge.title %></h3>
+    <ul>
+     <li><h3>Description of challenge: <%= user_challenge.description %></h3></li>
+    </ul>
+    <h4>Status: <%= user_challenge.status %></h4>
     <%= form_tag "/user_challenges/#{user_challenge.id}", method: :patch do %>
       <% if user_challenge.status == "Accepted" %>
         <div>
@@ -33,12 +37,27 @@
           <%= submit_tag "I've completed my challenge!" %>
         </div>
       <% elsif user_challenge.status == "Completed!" %>
-        <h3>Good Job!</h3> 
-        <!-- HERE IS WHERE YOU NEED TO CREATE A FIELD TO INPUT YOUR REFLECT ABOUT THE CHALLENGE. YOUR POST. -->
+        <h3>It's all good!</h3> 
       <% end %>
-    <% end %>  
-  <ul>
-   <li><h3>Description of challenge: <%= user_challenge.description %></h3></li>
-  </ul>
+    <% end %> 
+    <!-- HERE IS WHERE YOU NEED TO CREATE A FIELD TO INPUT YOUR REFLECT ABOUT THE CHALLENGE. YOUR POST. -->
+    <% if user_challenge.status == "Completed!" %>
+      <h3>Thoughts about this challenge</h3>
+      <% user_challenge.posts.each do |post| %>
+        <p><%= post.text %></p>
+      <% end %>
+      <%= form_tag "/posts", method: :post do %>  
+        <div>
+          <%= text_area_tag :text, "", placeholder: "Let me tell you about my challenge..." %>
+        </div>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <%= hidden_field_tag :user_challenge_id, user_challenge.id %> 
+        <div>
+          <%= submit_tag "Submit" %>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div> 
 <% end %>
 
