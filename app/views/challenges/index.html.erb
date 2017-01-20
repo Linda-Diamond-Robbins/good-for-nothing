@@ -10,22 +10,24 @@
             
             <%= form_for(@challenge) do |f| %>
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label class="control-label">Title</label>
                     <%= f.text_field :title,class: "form-control" %>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label class="control-label">Description</label>
                     <%= f.text_field :description, class: "form-control" %>
                   </div>
                 </div>
-                <div class="col-md-4">
+              </div>
+              <div class="row">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label class="control-label">Categories</label>
-                    <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, {:prompt => 'Select Categories', class: "chosen-select", multiple: true 
+                    <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, {:data => { placeholder: "Category List"}, class: "chosen-select form-control", multiple: true 
                       }) %>
                   </div>
                 </div>
@@ -127,6 +129,6 @@
   });
 
   $(document).ready(function(){
-    $(".chosen-select").css("width", "100%");
+    $(".chosen-container").css("width", "100%");
   });      
 </script>

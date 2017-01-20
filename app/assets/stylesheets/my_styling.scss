@@ -28,7 +28,38 @@
   -webkit-border-radius: 5%;
   -moz-border-radius: 5%;
   border-radius: 5%;
-  // border: 1px solid rgba(0, 0, 0, 0.1);
-  // background-color: rgba(0, 0, 0, 0.2);
 }
 
+.chosen-drop {
+  background-color: #999 !important;  
+  border: none !important;  
+  border-radius: 5px !important
+}
+
+ul.chosen-choices {
+  background: #555 !important; 
+  min-height: 40px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  
+  input {
+    vertical-align: middle !important;
+  }
+
+  li.search-field {
+    line-height: 40px !important;
+    margin-left: 10px !important;
+  }
+}
+  
+.chosen-container .chosen-results li.highlighted {
+  background: #555 !important;
+}
+
+.search-choice {
+  height: 34px !important;
+
+  span {
+    line-height: 32px !important;
+  }
+}

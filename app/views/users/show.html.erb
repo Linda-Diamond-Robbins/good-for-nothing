@@ -13,9 +13,32 @@
 <h3>Challenges I've Accepted:</h3>
 
 <% @user_challenges.each do |user_challenge| %>
-<h3>Title of challenge: <%= user_challenge.title %></h3>
+  <h3>Title of challenge: <%= user_challenge.title %></h3>
+  <h4>Status: <%= user_challenge.status %></h4>
+    <%= form_tag "/user_challenges/#{user_challenge.id}", method: :patch do %>
+      <% if user_challenge.status == "Accepted" %>
+        <div>
+          <%= hidden_field_tag :status, "In Progress" %>
+        </div>   
+        
+        <div>
+          <%= submit_tag "Begin my challenge!" %>
+        </div>
+      <% elsif user_challenge.status == "In Progress" %>
+        <div>
+          <%= hidden_field_tag :status, "Completed!" %>
+        </div>   
+        
+        <div>
+          <%= submit_tag "I've completed my challenge!" %>
+        </div>
+      <% elsif user_challenge.status == "Completed!" %>
+        <h3>Good Job!</h3> 
+        <!-- HERE IS WHERE YOU NEED TO CREATE A FIELD TO INPUT YOUR REFLECT ABOUT THE CHALLENGE. YOUR POST. -->
+      <% end %>
+    <% end %>  
   <ul>
-    <li><h3>Description of challenge: <%= user_challenge.description %></h3></li>
+   <li><h3>Description of challenge: <%= user_challenge.description %></h3></li>
   </ul>
-
 <% end %>
+

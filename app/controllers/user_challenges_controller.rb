@@ -16,7 +16,8 @@ class UserChallengesController < ApplicationController
       challenge_id: params[:challenge_id],
       title: params[:title],
       description: params[:description],
-      user_id: params[:user_id]
+      user_id: params[:user_id],
+      status: params[:status]
       )
     if @user_challenge.save
       flash[:success] = "User Challenge successfully created!"
@@ -26,6 +27,16 @@ class UserChallengesController < ApplicationController
     end
   end
 
-
-
+  def edit
+    @user_challenge = UserChallenge.find_by(id: params[:id])
+  end
+  
+  def update
+    @user_challenge = UserChallenge.find_by(id: params[:id])
+    if @user_challenge.update(status: params[:status],
+      results_reflection: params[:results_reflection]
+      ) 
+      redirect_to "/users/#{current_user.id}"
+    end
+  end
 end

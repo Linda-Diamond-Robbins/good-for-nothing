@@ -11,9 +11,6 @@
 
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
     <meta name="author" content="htmlcoder.me">
 
@@ -59,6 +56,11 @@
 
     <!-- Custom css --> 
     <link href="/css/custom.css" rel="stylesheet">
+
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <!-- body classes:  -->
@@ -408,7 +410,6 @@
     <!-- JavaScript files placed at the end of the document so the pages load faster -->
     <!-- ================================================== -->
     <!-- Jquery and Bootstap core js files -->
-    <script type="text/javascript" src="/plugins/jquery.min.js"></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <!-- Modernizr javascript -->
     <script type="text/javascript" src="/plugins/modernizr.js"></script>
