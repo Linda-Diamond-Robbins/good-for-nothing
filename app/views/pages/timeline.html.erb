@@ -82,7 +82,7 @@
                           </div>
                         </header>
                         <div class="blogpost-content">
-                          <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+                          <p><%= user_challenge.challenge.description %></p>
                         </div>
                         <footer class="clearfix">
                           <div class="tags pull-left"><i class="icon-tags"></i>
@@ -91,9 +91,14 @@
                             <% end %>
                           </div>
                           <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>">Check It Out</a></div>
+                          <br>
+                          <ul class="social-links circle small clearfix hidden-xs">
+                            <li class="twitter"><a class=" twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=It's%20All%20Good!%20Challenge%20completed:%20<%= user_challenge.challenge.title %> http://localhost:3000/challenges/<%= user_challenge.challenge_id %>"><i class="fa fa-twitter"></i></a></li>
+                            <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                          </ul> 
                         </footer>
                       </article>
-                      <!-- blogpost end -->               
+                      <!-- blogpost end -->                              
                     </div>
                   <% else %>
                     <div class="timeline-item pull-right">
@@ -142,7 +147,7 @@
                           </div>
                         </header>
                         <div class="blogpost-content">
-                          <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+                          <p><%= user_challenge.challenge.description %></p>
                         </div>
                         <footer class="clearfix">
                           <div class="tags pull-left"><i class="icon-tags"></i>
@@ -151,6 +156,11 @@
                             <% end %>
                           </div>
                           <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>">Check It Out</a></div>
+                          <br>
+                          <ul class="social-links circle small clearfix hidden-xs">
+                            <li class="twitter"><a class=" twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=It's%20All%20Good!%20Challenge%20completed:%20<%= user_challenge.challenge.title %> http://localhost:3000/challenges/<%= user_challenge.challenge_id %>"><i class="fa fa-twitter"></i></a></li>
+                            <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                          </ul> 
                         </footer>
                       </article>
                       <!-- blogpost end -->               
