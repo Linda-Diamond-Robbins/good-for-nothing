@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/research' => 'pages#research'
   get '/ideas' => 'pages#ideas'
 
+  post '/comments' => 'comments#create'
+
   namespace :api do 
     namespace :v1 do
       get '/challenges' => 'challenges#index'

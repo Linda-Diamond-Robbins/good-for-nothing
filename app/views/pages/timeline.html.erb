@@ -35,6 +35,7 @@
 
                 <% @completed_user_challenges.each_with_index do |user_challenge, index| %>
                   <% if index.even? %>
+                    <%= render 'user_challenge_comments', user_challenge: user_challenge, challenge_number: user_challenge.id %>
                   <!-- timeline grid item start -->
                     <div class="timeline-item">
                       <!-- blogpost start -->
@@ -78,7 +79,8 @@
                               <span class="month"><%= user_challenge.updated_at.strftime("%b %Y") %></span>
                             </span>
                             <span class="submitted"><i class="icon-user-1"></i> by <a href="#"><%= user_challenge.user.name %></a></span>
-                            <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
+                            <span class="comments" data-toggle="modal" data-target="#user-challenge-comments-modal-<%= user_challenge.id %>"><i class="icon-chat"></i> <a href="#"><%= user_challenge.comments.count %></a></span>
+                            
                           </div>
                         </header>
                         <div class="blogpost-content">
@@ -90,10 +92,10 @@
                               <a href="#"><%= category.name %></a>
                             <% end %>
                           </div>
-                          <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>">Check It Out</a></div>
+                          <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>"><%= user_challenge.comments.count %></a></div>
                           <br>
                           <ul class="social-links circle small clearfix hidden-xs">
-                            <li class="twitter"><a class=" twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=It's%20All%20Good!%20Challenge%20completed:%20<%= user_challenge.challenge.title %> http://localhost:3000/challenges/<%= user_challenge.challenge_id %>"><i class="fa fa-twitter"></i></a></li>
+                            <li class="twitter"><a class=" twitter-share-button" target="_blank" href="https://twitter.com/intent/tweet?text=It's%20All%20Good!%20Challenge%20completed:%20<%= user_challenge.challenge.title %> <%= @root_url %>/challenges/<%= user_challenge.challenge_id %>"><i class="fa fa-twitter"></i></a></li>
                             <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
                           </ul> 
                         </footer>
@@ -101,6 +103,7 @@
                       <!-- blogpost end -->                              
                     </div>
                   <% else %>
+                    <%= render 'user_challenge_comments', user_challenge: user_challenge, challenge_number: user_challenge.id  %>
                     <div class="timeline-item pull-right">
                       <!-- blogpost start -->
                       <article class="blogpost shadow light-gray-bg bordered">
@@ -143,7 +146,7 @@
                               <span class="month"><%= user_challenge.updated_at.strftime("%b %Y") %></span>
                             </span>
                             <span class="submitted"><i class="icon-user-1"></i> by <a href="#"><%= user_challenge.user.name %></a></span>
-                            <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
+                            <span class="comments" data-toggle="modal" data-target="#user-challenge-comments-modal-<%= user_challenge.id %>"><i class="icon-chat"></i> <a href="#"><%= user_challenge.comments.count %></a></span>
                           </div>
                         </header>
                         <div class="blogpost-content">
@@ -185,3 +188,7 @@
         </div>
       </section>
       <!-- main-container end
+
+<!-- Button trigger modal -->
+
+

@@ -269,18 +269,18 @@
                         <!-- main-menu -->
                         <ul class="nav navbar-nav ">
                           <!-- mega-menu start -->
-                          <li class="active mega-menu">
+                          <li class="<%= "active" if request.fullpath.starts_with? "/challenges" %> mega-menu">
                             <a href="/challenges">Challenges</a>
                           </li>
                           <!-- mega-menu end -->
                           <!-- mega-menu start -->
-                          <li class="mega-menu">
+                          <li class="<%= "active" if request.fullpath.starts_with? "/timeline" %> mega-menu">
                             <a href="/timeline">Timeline</a>
                           </li>
-                          <li class=" ">
+                          <li class="<%= "active" if request.fullpath.starts_with? "/ideas" %> ">
                             <a href="/ideas">Ideas</a>
                           </li>
-                          <li class=" ">
+                          <li class="<%= "active" if request.fullpath.starts_with? "/research" %> ">
                             <a href="/research">Research</a>
                           </li>
                         </ul>
