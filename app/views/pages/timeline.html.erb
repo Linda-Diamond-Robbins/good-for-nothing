@@ -1,0 +1,177 @@
+<!-- breadcrumb start -->
+      <!-- ================ -->
+      <div class="breadcrumb-container">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><i class="fa fa-home pr-10"></i><a href="/">Home</a></li>
+            <li class="active">Challenge Timeline</li>
+          </ol>
+        </div>
+      </div>
+      <!-- breadcrumb end -->
+
+      <!-- main-container start -->
+      <!-- ================ -->
+      <section class="main-container">
+
+        <div class="container">
+          <div class="row">
+
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-md-12">
+
+              <!-- page-title start -->
+              <!-- ================ -->
+              <h1 class="page-title">Challenges</h1>
+              <div class="separator-2"></div>
+              <!-- page-title end -->
+
+              <!-- timeline grid start -->
+              <!-- ================ -->
+              <div class="timeline clearfix">
+                
+                <div class="timeline-date-label clearfix">May 2015</div>
+
+                <% @completed_user_challenges.each_with_index do |user_challenge, index| %>
+                  <% if index.even? %>
+                  <!-- timeline grid item start -->
+                    <div class="timeline-item">
+                      <!-- blogpost start -->
+                      <article class="blogpost shadow light-gray-bg bordered">
+                        <!-- <div id="carousel-blog-post" class="carousel slide" data-ride="carousel"> -->
+                          <!-- Indicators -->
+                         <!--  <ol class="carousel-indicators bottom margin-clear">
+                            <li data-target="#carousel-blog-post" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-blog-post" data-slide-to="1"></li>
+                            <li data-target="#carousel-blog-post" data-slide-to="2"></li>
+                          </ol> -->
+
+                          <!-- Wrapper for slides -->
+                          <!-- <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                              <div class="overlay-container">
+                                <img src="/images/blog-1.jpg" alt="">
+                                <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+                              </div>
+                            </div> -->
+                            <!-- <div class="item">
+                              <div class="overlay-container">
+                                <img src="/images/blog-3.jpg" alt="">
+                                <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="overlay-container">
+                                <img src="/images/blog-4.jpg" alt="">
+                                <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                        <header>
+                          <h2><a href="blog-post.html"><%= user_challenge.challenge.title %></a></h2>
+                          <div class="post-info">
+                            <span class="post-date">
+                              <i class="icon-calendar"></i>
+                              <span class="day"><%= user_challenge.updated_at.strftime("%d") %></span>
+                              <span class="month"><%= user_challenge.updated_at.strftime("%b %Y") %></span>
+                            </span>
+                            <span class="submitted"><i class="icon-user-1"></i> by <a href="#"><%= user_challenge.user.name %></a></span>
+                            <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
+                          </div>
+                        </header>
+                        <div class="blogpost-content">
+                          <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+                        </div>
+                        <footer class="clearfix">
+                          <div class="tags pull-left"><i class="icon-tags"></i>
+                            <% user_challenge.challenge.categories.each do |category| %>
+                              <a href="#"><%= category.name %></a>
+                            <% end %>
+                          </div>
+                          <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>">Check It Out</a></div>
+                        </footer>
+                      </article>
+                      <!-- blogpost end -->               
+                    </div>
+                  <% else %>
+                    <div class="timeline-item pull-right">
+                      <!-- blogpost start -->
+                      <article class="blogpost shadow light-gray-bg bordered">
+                        <!-- <div id="carousel-blog-post" class="carousel slide" data-ride="carousel"> -->
+                          <!-- Indicators -->
+                          <!-- <ol class="carousel-indicators bottom margin-clear">
+                            <li data-target="#carousel-blog-post" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-blog-post" data-slide-to="1"></li>
+                            <li data-target="#carousel-blog-post" data-slide-to="2"></li>
+                          </ol> -->
+
+                          <!-- Wrapper for slides -->
+                          <!-- <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                              <div class="overlay-container">
+                                <img src="/images/blog-1.jpg" alt="">
+                                <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="overlay-container">
+                                <img src="/images/blog-3.jpg" alt="">
+                                <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="overlay-container">
+                                <img src="/images/blog-4.jpg" alt="">
+                                <a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                        <header>
+                          <h2><a href="blog-post.html"><%= user_challenge.challenge.title %></a></h2>
+                          <div class="post-info">
+                            <span class="post-date">
+                              <i class="icon-calendar"></i>
+                              <span class="day"><%= user_challenge.updated_at.strftime("%d") %></span>
+                              <span class="month"><%= user_challenge.updated_at.strftime("%b %Y") %></span>
+                            </span>
+                            <span class="submitted"><i class="icon-user-1"></i> by <a href="#"><%= user_challenge.user.name %></a></span>
+                            <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
+                          </div>
+                        </header>
+                        <div class="blogpost-content">
+                          <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum.</p>
+                        </div>
+                        <footer class="clearfix">
+                          <div class="tags pull-left"><i class="icon-tags"></i>
+                            <% user_challenge.challenge.categories.each do |category| %>
+                              <a href="#"><%= category.name %></a>
+                            <% end %>
+                          </div>
+                          <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>">Check It Out</a></div>
+                        </footer>
+                      </article>
+                      <!-- blogpost end -->               
+                    </div>
+                  <% end %>
+                  <!-- timeline grid item end -->
+                <% end %>
+
+
+                <!-- timeline grid item end -->
+                
+                <div class="timeline-date-label clearfix">April 2015</div>
+                
+          
+              </div>
+              <!-- timeline grid end -->
+
+            </div>
+            <!-- main end -->
+
+          </div>
+        </div>
+      </section>
+      <!-- main-container end

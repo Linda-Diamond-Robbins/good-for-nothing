@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
   post '/posts' => 'posts#create'
+  get '/timeline' => 'pages#timeline'
+  get '/research' => 'pages#research'
+  get '/ideas' => 'pages#ideas'
 
   namespace :api do 
     namespace :v1 do

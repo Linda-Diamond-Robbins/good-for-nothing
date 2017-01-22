@@ -9,7 +9,7 @@ class ChallengeForm < MailForm::Base
     {
       :subject => "You've Been Challenged! - It's All Good",
       :to => "#{challengee_email}",
-      :from => %("#{name}" <#{email}>)
+      :from => %(It's All Good <#{email}>)
     }
   end
 end
