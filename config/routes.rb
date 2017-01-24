@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   post '/comments' => 'comments#create'
   post '/reviews' => 'reviews#create'
 
+  get '/forums' => 'forums#index'
+  get '/forums/new' => 'forums#new'
+  post '/forums' => 'forums#create'
+
   namespace :api do 
     namespace :v1 do
       get '/challenges' => 'challenges#index'

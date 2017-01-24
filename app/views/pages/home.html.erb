@@ -17,11 +17,11 @@
             <span class="challenge-value-caption cursive">created</span>
           </div>
           <div class="challenge-countdown">
-             <span class="challenge-value">45</span><br>
+             <span class="challenge-value"><%= UserChallenge.where(status: "Accepted").count %></span><br>
              <span class="challenge-value-caption cursive">accepted</span>
           </div>
           <div class="challenge-countdown">
-             <span class="challenge-value">45</span><br>
+             <span class="challenge-value"><%= UserChallenge.where(status: "Completed!").count %></span><br>
              <span class="challenge-value-caption cursive">completed</span>
           </div>
         </div>

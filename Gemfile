@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'mail_form'
 gem 'figaro'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "simple_calendar", "~> 2.0"

@@ -1,0 +1,28 @@
+<article class="blogpost shadow light-gray-bg bordered">
+  <header>
+    <h2><a href="blog-post.html"><%= user_challenge.challenge.title %></a></h2>
+    <div class="post-info">
+      <span class="post-date">
+        <i class="icon-calendar"></i>
+        <span class="day"><%= user_challenge.updated_at.strftime("%d") %></span>
+        <span class="month"><%= user_challenge.updated_at.strftime("%b %Y") %></span>
+      </span>
+      <span class="submitted"><i class="icon-user-1"></i> completed by <a href="/users/<%=user_challenge.user_id %>"><%= user_challenge.user.name %></a></span>
+      <span class="comments" data-toggle="modal" data-target="#user-challenge-comments-modal-<%= user_challenge.id %>"><i class="icon-chat"></i> <a href="#"><%= user_challenge.comments.count %></a></span>
+      
+    </div>
+  </header>
+  <div class="blogpost-content">
+    <p><%= user_challenge.challenge.description %></p>
+  </div>
+  <footer class="clearfix">
+    <div class="tags pull-left"><i class="icon-tags"></i>
+      <% user_challenge.challenge.categories.each do |category| %>
+        <a href="#"><%= category.name %></a>
+      <% end %>
+    </div>
+    <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>"><%= user_challenge.comments.count %></a></div>
+    <br>
+    
+  </footer>
+</article>
