@@ -1,29 +1,35 @@
 <% if current_user %>
-   
   <div class="section dark-bg text-muted negative-margins">
     <div class="container">
-      <h2>Create Your Own Challenge!</h2>
+      <h3>Have A "Good" Idea? Create Your Own Challenge!</h3>
       
-      <%= form_tag "/challenges", role: "form", method: :post do %>
+      <%= form_for(@challenge) do |f| %>
         <div class="row">
-          <div class="col-md-4">
+
+          <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="inputSuccess4">Title</label>
-              <%= text_field_tag :title, "", class: "form-control", id: "inputSuccess4" %>
+              <label class="control-label">Title</label>
+              <%= f.text_field :title,class: "form-control" %>
             </div>
           </div>
-          <div class="col-md-4">
+
+          <div class="col-md-6">
             <div class="form-group">
-              <label class="control-label" for="inputWarning4">Description</label>
-              <%= text_field_tag :description, "", class: "form-control", id: "inputWarning4" %>
+              <label class="control-label">Description</label>
+              <%= f.text_field :description, class: "form-control" %>
             </div>
           </div>
-          <div class="col-md-4">
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            
             <div class="form-group">
-              <label class="control-label" for="inputError4">Input with error</label>
-              <input type="text" class="form-control" id="inputError4">
-              <i class="fa fa-times form-control-feedback"></i>
+              <label class="control-label">Categories</label>
+              <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, {:data => { placeholder: "Category List"}, class: "chosen-select form-control", multiple: true 
+                }) %>
             </div>
+         
           </div>
         </div>
         <button type="submit" class="btn btn-gray">Submit</button>
@@ -34,3 +40,45 @@
   <p>Please log in to create a challenge! </p>
 <% end %>  
 
+<!-- 
+<dl class="dropdown"> 
+  
+    <dt>
+    <a href="#">
+      <span class="hida">Select</span>    
+      <p class="multiSel"></p>  
+    </a>
+    </dt>
+  
+    <dd>
+        <div class="mutliSelect">
+            <ul>
+                <li>
+                    <input type="checkbox" value="Gift" />Gift</li>
+                <li>
+                    <input type="checkbox" value="Food" />Food</li>
+                <li>
+                    <input type="checkbox" value="Donation" />Donation</li>
+                <li>
+                    <input type="checkbox" value="Spare Change" />Spare Change</li>
+                <li>
+                    <input type="checkbox" value="Give" />Give</li>
+                <li>
+                    <input type="checkbox" value="Free" />Free</li>
+                <li>
+                    <input type="checkbox" value="Time" />Time</li>
+            </ul>
+        </div>
+    </dd>
+  <button>Filter</button>
+</dl> -->
+
+<script>
+  $(function() {
+      $(".chosen-select").chosen();
+  });
+
+  $(document).ready(function() {
+    $(".chosen-container").css("width", "100%");
+  });      
+</script>

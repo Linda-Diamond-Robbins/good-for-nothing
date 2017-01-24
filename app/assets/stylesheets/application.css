@@ -12,6 +12,7 @@
  *
  *= require chosen
  *= require_tree .
+ *= require simple_calendar
  *= require_self
  */
 

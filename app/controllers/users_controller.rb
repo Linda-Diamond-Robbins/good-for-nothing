@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Completed!")
     @user = User.find_by(id: params[:id]) 
     @user_challenges = UserChallenge.where(user_id: params[:id])
     # @user = User.find_by(id: current_user.id)
