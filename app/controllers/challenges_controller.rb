@@ -9,6 +9,8 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find_by(id: params[:id])
+    @reviews = @challenge.reviews
+    @review = Review.new
     @challenge_form = ChallengeForm.new
     render 'show.html.erb'
   end

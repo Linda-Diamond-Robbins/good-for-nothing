@@ -5,5 +5,6 @@ class User < ApplicationRecord
   # has_many :created_challenges, class_name: :Challenge # the challenges the user created
   has_many :posts
   has_many :comments
+  has_many :reviews
 end
 

@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get '/ideas' => 'pages#ideas'
 
   post '/comments' => 'comments#create'
+  post '/reviews' => 'reviews#create'
 
   namespace :api do 
     namespace :v1 do
