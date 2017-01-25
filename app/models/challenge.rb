@@ -15,4 +15,8 @@ class Challenge < ApplicationRecord
     end
     category_string.squish
   end
+
+  def friendly_date
+   return created_at.strftime("%B %Y")
+  end
 end

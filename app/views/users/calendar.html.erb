@@ -1,0 +1,10 @@
+<div class="container mt-40">
+<%= month_calendar events: @completed_challenges, attribute: :updated_at do |date, completed_challenges| %>
+  <%= date.strftime("%d") %>
+
+  <% completed_challenges.each do |challenge| %>
+    <div>
+      <%= link_to challenge.challenge.title, "/challenges/#{challenge.id}" %>
+    </div>
+  <% end %>
+<% end %></div>

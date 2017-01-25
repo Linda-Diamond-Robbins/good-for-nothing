@@ -32,4 +32,9 @@ class UsersController < ApplicationController
       redirect_to '/signup'
     end
   end
+
+  def calendar
+    @user = User.find(params[:id])
+    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Completed!")
+  end
 end

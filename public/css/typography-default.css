@@ -18,8 +18,15 @@ body {
 }
 
 .logo-font {
-  font-family: "Pacifico", cursive, sans-serif;
+  font-family: "FFF Tusj", cursive, sans-serif;
+  font-size: 7em !important;
 }
+
+.logo-font-2 {
+  font-family: "FFF Tusj", cursive, sans-serif;
+  font-size: 5em !important;
+}
+
 
 /*Typography
 ---------------------------------- */

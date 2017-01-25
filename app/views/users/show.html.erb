@@ -60,13 +60,3 @@
     </div> 
   <% end %>
 <% end %>
-
-<%= month_calendar events: @completed_challenges, attribute: :updated_at do |date, completed_challenges| %>
-  <%= date %>
-
-  <% completed_challenges.each do |challenge| %>
-    <div>
-      <%= challenge.challenge.title %>
-    </div>
-  <% end %>
-<% end %>

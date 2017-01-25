@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>It's All Good | When doing good is a game, everyone wins!</title>
+    <title>It's All Good</title>
 
     <%= csrf_meta_tags %>
 
@@ -26,6 +26,7 @@
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -222,13 +223,11 @@
                   
                   <!-- logo -->
                   <div id="logo" class="logo">
-                    <a href="/"><img id="logo_img" src="/images/logo_light_blue.png" alt="It All Good"></a>
+                    <a href="/"><img id="logo_img" src="/images/Logo.png" alt="It All Good"></a>
                   </div>
 
                   <!-- name-and-slogan -->
-                  <div class="site-slogan">
-                    When Doing Good Is A Game, Everyone Wins!
-                  </div>
+
 
                 </div>
                 <!-- header-left end -->
@@ -277,14 +276,14 @@
                           <li class="<%= "active" if request.fullpath.starts_with? "/timeline" %> mega-menu">
                             <a href="/timeline">Good Done</a>
                           </li>
-                          <li class="<%= "active" if request.fullpath.starts_with? "/ideas" %> ">
-                            <a href="/ideas">Ideas</a>
-                          </li>
-                          <li class="<%= "active" if request.fullpath.starts_with? "/research" %> ">
-                            <a href="/research">Research</a>
+\                          <li class="<%= "active" if request.fullpath.starts_with? "/links" %> ">
+                            <a href="/links">Links</a>
                           </li>
                           <li class="<%= "active" if request.fullpath.starts_with? "/research" %> ">
                             <a href="/challenges/new">Create a Challenge</a>
+                          </li>
+                          <li class="<%= "active" if request.fullpath.starts_with? "/timeline" %> mega-menu">
+                            <a href="/forums">Forum</a>
                           </li>
                         </ul>
                         <!-- main-menu end -->

@@ -30,13 +30,13 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
+  get '/calendar/:id' => 'users#calendar'
 
   get '/signup' => 'users#new'
 
   post '/posts' => 'posts#create'
   get '/timeline' => 'pages#timeline'
-  get '/research' => 'pages#research'
-  get '/ideas' => 'pages#ideas'
+  get '/links' => 'pages#research'
 
   post '/comments' => 'comments#create'
   post '/reviews' => 'reviews#create'
