@@ -35,6 +35,6 @@ class UsersController < ApplicationController
 
   def calendar
     @user = User.find(params[:id])
-    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Good Completed!")
+    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Completed!")
   end
 end
