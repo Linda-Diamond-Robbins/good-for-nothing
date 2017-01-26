@@ -32,7 +32,7 @@
               <div class="timeline clearfix">
                 <% @completed_user_challenges.each_with_index do |user_challenge, index| %>
                   <% if index.even? %>
-                    <%= render 'user_challenge_comments', user_challenge: user_challenge, challenge_number: user_challenge.id %>
+                    <%= render 'user_challenge_comments', user_challenge: user_challenge %>
                   <!-- timeline grid item start -->
                     <div class="timeline-item">
                       <!-- blogpost start -->
@@ -40,7 +40,7 @@
                       <!-- blogpost end -->                              
                     </div>
                   <% else %>
-                    <%= render 'user_challenge_comments', user_challenge: user_challenge, challenge_number: user_challenge.id  %>
+                    <%= render 'user_challenge_comments', user_challenge: user_challenge  %>
                     <div class="timeline-item pull-right">
                       <!-- blogpost start -->
                       <%= render 'individual_timeline', user_challenge: user_challenge %>
