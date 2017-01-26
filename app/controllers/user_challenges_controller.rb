@@ -5,8 +5,6 @@ class UserChallengesController < ApplicationController
     render 'index.html.erb'
   end
 
- 
-
   def new
 
   end
@@ -20,7 +18,7 @@ class UserChallengesController < ApplicationController
       status: params[:status]
       )
     if @user_challenge.save
-      flash[:success] = "User Challenge successfully created!"
+      flash[:success] = "Good Challenge Successfully Created!"
       redirect_to "/users/#{current_user.id}"
       else
         render 'new.html.erb'

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Completed!")
+    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Good Done!")
     @user = User.find_by(id: params[:id]) 
     @user_challenges = UserChallenge.where(user_id: params[:id])
     # @user = User.find_by(id: current_user.id)
@@ -25,16 +25,16 @@ class UsersController < ApplicationController
     )
     if user.save
       session[:user_id] = user.id
-      flash[:success] = 'Successfully created account!'
+      flash[:success] = 'Account Successfully Created!'
       redirect_to '/challenges'
     else
-      flash[:warning] = 'Invalid email or password!'
+      flash[:warning] = 'Invalid Email Or Password!'
       redirect_to '/signup'
     end
   end
 
   def calendar
     @user = User.find(params[:id])
-    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Completed!")
+    @completed_challenges = UserChallenge.where(user_id: params[:id], status:"Good Completed!")
   end
 end

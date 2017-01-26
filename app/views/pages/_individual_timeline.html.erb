@@ -1,6 +1,6 @@
 <article class="blogpost shadow light-gray-bg bordered">
   <header>
-    <h2><a href="blog-post.html"><%= user_challenge.challenge.title %></a></h2>
+    <h2><a href="/challenges/<%= user_challenge.challenge_id %>"><%= user_challenge.challenge.title %></a></h2>
     <div class="post-info">
       <span class="post-date">
         <i class="icon-calendar"></i>
@@ -21,7 +21,6 @@
         <a href="#"><%= category.name %></a>
       <% end %>
     </div>
-    <div class="link pull-right"><i class="icon-link"></i><a href="/challenges/<%= user_challenge.challenge_id %>"><%= user_challenge.comments.count %></a></div>
     <br>
     
   </footer>

@@ -52,7 +52,7 @@ class ChallengesController < ApplicationController
     challenge_email = ChallengeForm.new(params[:challenge_form])
     challenge_email.request = request
     if challenge_email.deliver
-      flash[:success] = "Good is on it's way!"
+      flash[:success] = "Good Is On Its Way!"
       redirect_to "/challenges"
     else 
       p challenge_email.errors

@@ -16,3 +16,11 @@
  *= require_self
  */
 
+
+ .feature-box {
+  min-height: 300px;
+ }
+
+.challenge-index  {
+  background-color: #49561c !important;
+}

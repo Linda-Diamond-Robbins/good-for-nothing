@@ -1,11 +1,38 @@
-<h1>Good For Nothing...</h1>
-<h1>Challenge ID:</h1> 
-<h2><%= @challenge.id %></h2> 
-<h1>Challenge Title:</h1> 
-<h2><%= @challenge.title %></h2>
+<!-- banner start -->
+<!-- ================ -->
+<div class="banner dark-translucent-bg" style="background-image:url('/images/forwardroad.jpg'); background-position: 50% 21%;">
+  <!-- breadcrumb start -->
+  <!-- ================ -->
+  <div class="breadcrumb-container">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><i class="fa fa-home pr-10"></i><a class="link-dark" href="index.html">Home</a></li>
+        <li class="active">Portfolio Item 2</li>
+      </ol>
+    </div>
+  </div>
+  <!-- breadcrumb end -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-center col-md-offset-2 pv-20">
+        <h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100"><strong>Project</strong> Title</h2>
+        <div class="separator object-non-visible mt-10" data-animation-effect="fadeIn" data-effect-delay="100"></div>
+        <p class="text-center object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi perferendis magnam ea necessitatibus, officiis voluptas odit! Aperiam omnis, cupiditate laudantium velit nostrum, exercitationem accusamus, possimus soluta illo deserunt tempora qui.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- banner end -->
+
+<!-- main-container start -->
+<!-- ================ -->
+
+<h1>It's All Good</h1>
+
+<title>><%= @challenge.title %></title>
 <p> <%= @challenge.description %></p>
-<p>Public? <%= @challenge.public %></p>
-<p>Created by user <%= @challenge.user_id %></p>
+
+<p>Created by  <a href="/users/<%= @challenge.user_id %>"><%= @challenge.user.name %></a></p>
 
 
 <% if current_user %>
@@ -27,7 +54,7 @@
       <%= hidden_field_tag :status, "Accepted" %>
     </div>   
     <div>
-    <%= submit_tag "Accept Challenge!" %>
+    <%= submit_tag "Accept Good Challenge!", class: "btn btn-success btn-lg" %>
     </div>
   <% end %>
 <!-- Button trigger modal -->
@@ -45,7 +72,7 @@
     </div>
   
     <div class="form-group">
-      <%= f.text_field :text, placeholder: "Enter your comment", class: "form-control", required: true %>
+      <%= f.text_field :text, placeholder: "Enter Your Comment", class: "form-control", required: true %>
     </div>
   
     <%= f.submit class: "btn btn-default" %>
@@ -65,7 +92,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Challenge A Friend!</h4>
+        <h4 class="modal-title" id="myModalLabel">Challenge Someone To Do Good!</h4>
       </div>
      <div class="modal-body">
         <%= form_for(@challenge_form, url: "/send-challenge", method: :post, html:{ id: "challenge-form"}) do |f| %>
@@ -81,19 +108,280 @@
             <%= f.text_field :challengee_email, placeholder: "Email Address", required: true %>
           </div>
           <div class="form-group">
-            <%= f.text_area :message, value: "Hey!\n\nYour friend #{current_user.name} challenged you to do some good.\n\nView your challenge at http://localhost:3000/challenges/#{@challenge.id} ", class: "form-control", size: "20x10" %>
+            <%= f.text_area :message, value: "Hey!\n\n #{current_user.name} challenged you to do some good.\n\nView your challenge at http://localhost:3000/challenges/#{@challenge.id} ", class: "form-control", size: "20x10" %>
           </div>
         <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
-        <button class="btn btn-lg" form="challenge-form">Good To Go</button>
+        <button class="btn btn-lg" form="challenge-form">Good To Go!</button>
       </div>
     </div>
   </div>
 <% else %>
-  <p>Please log in to accept this challenge! </p>
+  <p>Please Log In To Accept This Challenge! </p>
 <% end %>  
+
+
+<section class="main-container">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-md-8">
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="active"><a href="#pill-1" role="tab" data-toggle="tab" title="video"><i class="fa fa-camera pr-5"></i> Image Gallery</a></li>
+          <li><a href="#pill-2" role="tab" data-toggle="tab" title="images"><i class="fa fa-pencil pr-5"></i> Description</a></li>
+          <li><a href="#pill-3" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content space-bottom">
+          <div class="tab-pane active" id="pill-1">
+            <div class="shadow bordered">
+              <div class="overlay-container">
+                <img src="/images/portfolio-item-1.jpg" alt="">
+                <a href="images/portfolio-item-1.jpg" class="overlay-link popup-img" title="First image title">
+                  <i class="fa fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="space-bottom"></div>
+            <div class="row grid-space-20">
+              <div class="col-xs-3">
+                <div class="overlay-container">
+                  <img src="/images/portfolio-item-1-2.jpg" alt="">
+                  <a href="images/portfolio-item-1-2.jpg" class="overlay-link small popup-img" title="Second image title">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="overlay-container">
+                  <img src="/images/portfolio-item-1-3.jpg" alt="">
+                  <a href="images/portfolio-item-1-3.jpg" class="overlay-link small popup-img" title="Third image title">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="overlay-container">
+                  <img src="/images/portfolio-item-1-4.jpg" alt="">
+                  <a href="images/portfolio-item-1-4.jpg" class="overlay-link small popup-img" title="Fourth image title">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="overlay-container">
+                  <img src="/images/portfolio-item-1-5.jpg" alt="">
+                  <a href="images/portfolio-item-1-5.jpg" class="overlay-link small popup-img" title="Fifth image title">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="pill-2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum <a href="#">pariatur omnis illo saepe</a> numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam.</p>
+            <h3 class="title">Magnam facere quae pariatur ipsa.</h3>
+            <ol>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam commodi molestiae magnam harum obcaecati delectus mollitia culpa iusto, nam nisi, quia voluptatibus! Maxime quia consequuntur quisquam minima ratione sint a.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, voluptatum? Consequatur provident doloribus rem, inventore tempora aperiam et natus eum, optio quibusdam quaerat quos unde neque qui odio, aut debitis.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam error voluptas, hic excepturi a, ducimus est quisquam molestiae labore repudiandae accusamus quaerat pariatur, sit autem qui quasi! Nesciunt, amet, numquam!</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore minus deleniti quisquam illo iste voluptas aspernatur ab cupiditate nemo debitis, incidunt voluptatem corporis voluptatibus? Expedita sed sapiente, laborum quos.</li>
+            </ol>
+            <div class="clients">
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">
+                <a href="#"><img src="/images/client-1.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="200">
+                <a href="#"><img src="/images/client-2.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="300">
+                <a href="#"><img src="/images/client-3.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="400">
+                <a href="#"><img src="/images/client-4.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="500">
+                <a href="#"><img src="/images/client-5.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="600">
+                <a href="#"><img src="/images/client-6.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="700">
+                <a href="#"><img src="/images/client-7.png" alt=""></a>
+              </div>
+              <div class="client-image object-non-visible" data-animation-effect="fadeIn" data-effect-delay="800">
+                <a href="#"><img src="/images/client-8.png" alt=""></a>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="pill-3">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="///player.vimeo.com/video/29198414?byline=0&amp;portrait=0"></iframe>
+              <p><a href="http://vimeo.com/29198414">Introducing Vimeo Music Store</a> from <a href="http://vimeo.com/staff">Vimeo Staff</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+            </div>
+          </div>
+        </div>
+        <!-- pills end -->
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Project Info</h3>
+            <div class="separator-2"></div>
+            <ul class="list mb-20">
+              <li><strong>Client: </strong> <span class="text-right">John Doe</span></li>
+              <li><strong>Date: </strong> <span class="text-right">May 2015</span></li>
+              <li><strong>In: </strong> <span class="text-right">Web Design</span></li>
+              <li><strong>Place: </strong> <span class="text-right">Europe</span></li>
+              <li><strong>URL: </strong> <span class="text-right"><a href="#">www.theproject.com</a></span></li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <h3>Client Testimonial</h3>
+            <div class="separator-2"></div>
+            <blockquote class="margin-clear">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, magni, eos! Dignissimos voluptatum!</p>  
+              <footer><cite title="Source Title">Happy Client </cite></footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <!-- main end -->
+
+      <!-- sidebar start -->
+      <!-- ================ -->
+      <aside class="col-md-4 col-lg-3 col-lg-offset-1">
+        <div class="sidebar">
+          <div class="block clearfix">
+            <h3 class="title">Project Charts</h3>
+            <div class="separator-2"></div>
+            <canvas class="graph line space-bottom" id="lines-graph" height="210" width="270"></canvas>
+            <canvas class="graph doughnut space-bottom" id="doughnut-graph" height="220"></canvas>
+            <h3>Share This</h3>
+            <div class="separator-2"></div>
+            <ul class="social-links colored circle small">
+              <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+              <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+              <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+              <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+              <li class="xing"><a target="_blank" href="http://www.xing.com"><i class="fa fa-xing"></i></a></li>
+            </ul>
+            <a href="#" class="btn btn-animated btn-default btn-lg">External Link <i class="fa fa-external-link"></i></a>
+          </div>
+        </div>
+      </aside>
+      <!-- sidebar end -->
+    </div>
+  </div>
+</section>
+<!-- main-container end -->
+
+<!-- section start -->
+<!-- ================ -->
+<section class="section dark-bg pv-40 clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="call-to-action text-center">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h2 class="title">More info About This Project</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam, mollitia quas nihil inventore, quibusdam?</p>
+              <div class="separator"></div>
+              <form class="form-inline margin-clear">
+                <div class="form-group has-feedback">
+                  <label class="sr-only" for="subscribe3">Email address</label>
+                  <input type="email" class="form-control" id="subscribe3" placeholder="Enter email" name="subscribe3" required="">
+                  <i class="fa fa-envelope form-control-feedback"></i>
+                </div>
+                <button type="submit" class="btn btn-gray-transparent btn-animated margin-clear">Submit <i class="fa fa-send"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section end -->
+
+<!-- section start -->
+<!-- ================ -->
+<section class="section pv-40 clearfix">
+  <div class="container">
+    <h3>Related <strong>Projects</strong></h3>
+    <div class="row grid-space-10">
+      <div class="col-md-3 col-sm-6">
+        <div class="image-box shadow bordered text-center mb-20">
+          <div class="overlay-container">
+            <img src="/images/portfolio-1.jpg" alt="">
+            <div class="overlay-top">
+              <div class="text">
+                <h3><a href="portfolio-item.html">Project Title</a></h3>
+              </div>
+            </div>
+            <div class="overlay-bottom">
+              <p class="small">Web Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="image-box shadow bordered text-center mb-20">
+          <div class="overlay-container">
+            <img src="/images/portfolio-2.jpg" alt="">
+            <div class="overlay-top">
+              <div class="text">
+                <h3><a href="portfolio-item.html">Project Title</a></h3>
+              </div>
+            </div>
+            <div class="overlay-bottom">
+              <p class="small">App Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="image-box shadow bordered text-center mb-20">
+          <div class="overlay-container">
+            <img src="/images/portfolio-3.jpg" alt="">
+            <div class="overlay-top">
+              <div class="text">
+                <h3><a href="portfolio-item.html">Project Title</a></h3>
+              </div>
+            </div>
+            <div class="overlay-bottom">
+              <p class="small">App Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="image-box shadow bordered text-center mb-20">
+          <div class="overlay-container">
+            <img src="/images/portfolio-4.jpg" alt="">
+            <div class="overlay-top">
+              <div class="text">
+                <h3><a href="portfolio-item.html">Project Title</a></h3>
+              </div>
+            </div>
+            <div class="overlay-bottom">
+              <p class="small">Web Design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section end -->
+
+
+
 
 
 
