@@ -22,9 +22,15 @@
 
               <!-- page-title start -->
               <!-- ================ -->
-              <h1 class="page-title">Forum</h1>
+              <h1 class="page-title logo-font-2 lowercase">Forum</h1>
               <div class="separator-2"></div>
               <!-- page-title end -->
+              <% if current_user %>
+                <div>
+                  <%= link_to "Submit a Post", "/forums/new", class: "btn btn-default btn-md" %>
+                </div>
+                <div class="spacer-15"></div>
+              <% end %>
               <% @forums.each do |forum| %>
                 <div class="image-box style-3-b">
                   <div class="row">
@@ -36,7 +42,7 @@
                     </div>
                     <div class="col-sm-6 col-md-8 col-lg-9">
                       <div class="body">
-                        <h3 class="title"><a href="portfolio-item.html"><%= forum.title %></a></h3>
+                        <h3 class="title"><a href="#"><%= forum.title %></a></h3>
                         <p class="small mb-10"><i class="icon-calendar"></i> <%= forum.created_at.strftime("%b %d %y") %></p>
                         <div class="separator-2"></div>
                         <p class="mb-10"><%= forum.text %></p>

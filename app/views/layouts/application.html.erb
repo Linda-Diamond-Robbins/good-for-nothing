@@ -11,8 +11,7 @@
     <%= Gon::Base.render_data %>
     <%= csrf_meta_tags %>
 
-    <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-    <meta name="author" content="htmlcoder.me">
+   
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -174,7 +173,7 @@
                                 <!-- <input type="password" class="form-control" placeholder=""> -->
                                 <i class="fa fa-lock form-control-feedback"></i>
                               </div>
-                              <button type="submit" class="btn btn-gray btn-sm">Sign Me Up!</button>
+                              <button type="submit" class="btn btn-gray btn-sm">Log In!</button>
                             <% end %>
                           </li>
                         </ul>
@@ -284,7 +283,7 @@
                             <a href="/links">Links</a>
                           </li>
                           <li class="<%= "active" if request.fullpath.starts_with? "/research" %> ">
-                            <a href="/challenges/new">Create a  Good Challenge</a>
+                            <a href="/challenges/new">Create A Good Challenge</a>
                           </li>
                           <li class="<%= "active" if request.fullpath.starts_with? "/timeline" %> mega-menu">
                             <a href="/forums">Forum</a>

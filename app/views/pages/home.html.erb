@@ -14,15 +14,15 @@
           <br>
           <div class="challenge-countdown">
             <span class="challenge-value"><%= Challenge.count %></span><br>
-            <span class="challenge-value-caption cursive">created</span>
+            <span class="challenge-value-caption">created</span>
           </div>
           <div class="challenge-countdown">
              <span class="challenge-value"><%= UserChallenge.where(status: "Accepted").count %></span><br>
-             <span class="challenge-value-caption cursive">good accepted</span>
+             <span class="challenge-value-caption">good accepted</span>
           </div>
           <div class="challenge-countdown">
              <span class="challenge-value"><%= UserChallenge.where(status: "Completed!").count %></span><br>
-             <span class="challenge-value-caption cursive">good completed</span>
+             <span class="challenge-value-caption">good completed</span>
           </div>
         </div>
       </div>
