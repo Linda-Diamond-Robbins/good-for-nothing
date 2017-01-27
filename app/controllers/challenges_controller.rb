@@ -12,9 +12,10 @@ class ChallengesController < ApplicationController
     @reviews = @challenge.reviews
     @review = Review.new
     @challenge_form = ChallengeForm.new
-    gon.accepted = ((UserChallenge.where(status: "Accepted").count).to_f / 100)
-    gon.in_progress = ((UserChallenge.where(status: "In Progress").count).to_f / 100)
-    gon.completed = ((UserChallenge.where(status: "Completed!").count).to_f / 100)
+    all_users = User.all.count
+    gon.accepted = ((UserChallenge.where(status: "Accepted", challenge_id: @challenge.id).count).to_f * 100 / all_users)
+    gon.in_progress = ((UserChallenge.where(status: "In Progress", challenge_id: @challenge.id).count).to_f * 100 / all_users)
+    gon.completed = ((UserChallenge.where(status: "Completed!", challenge_id: @challenge.id).count).to_f * 100 / all_users)
     render 'show.html.erb'
   end
 
