@@ -8,6 +8,7 @@
   <head>
     <meta charset="utf-8">
     <title>It's All Good</title>
+    <%= Gon::Base.render_data %>
     <%= csrf_meta_tags %>
 
     <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
@@ -56,6 +57,7 @@
 
     <!-- Custom css --> 
     <link href="/css/custom.css" rel="stylesheet">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

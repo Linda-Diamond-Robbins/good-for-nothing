@@ -31,6 +31,10 @@ gem 'mail_form'
 gem 'figaro'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+gem "chartkick"
+gem 'groupdate'
+gem 'hightop'
+gem 'gon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "simple_calendar", "~> 2.0"

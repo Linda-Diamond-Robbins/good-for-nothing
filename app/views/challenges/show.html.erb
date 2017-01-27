@@ -161,10 +161,12 @@
       <aside class="col-md-4 col-lg-3 col-lg-offset-1">
         <div class="sidebar">
           <div class="block clearfix">
-            <h3 class="title">Project Charts</h3>
+            <h3 class="title">Stats</h3>
             <div class="separator-2"></div>
-            <canvas class="graph line space-bottom" id="lines-graph" height="210" width="270"></canvas>
-            <canvas class="graph doughnut space-bottom" id="doughnut-graph" height="220"></canvas>
+            <!-- <#%= pie_chart UserChallenge.group(:status).count %> -->
+            <div class="text-center" id="container" style="max-width: 310px; height: 200px; max-width: 300px; margin: 0 auto"></div>
+           <!--  <canvas class="graph line space-bottom" id="lines-graph" height="210" width="270"></canvas>
+            <canvas class="graph doughnut space-bottom" id="doughnut-graph" height="220"></canvas> -->
             <h3>Share This</h3>
             <div class="separator-2"></div>
             <ul class="social-links colored circle small">
@@ -183,6 +185,57 @@
   </div>
 </section>
 <!-- main-container end -->
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+
+<script>
+  $(function () {
+      Highcharts.chart('container', {
+          chart: {
+              plotBackgroundColor: null,
+              plotBorderWidth: 0,
+              plotShadow: false
+          },
+          title: {
+              text: '',
+              align: 'center',
+              verticalAlign: 'middle',
+              y: 40
+          },
+          tooltip: {
+              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+              pie: {
+                  dataLabels: {
+                      enabled: false,
+                      distance: -50,
+                      style: {
+                          fontWeight: 'bold',
+                          color: 'white'
+                      }
+                  },
+                  startAngle: -90,
+                  endAngle: 90,
+                  center: ['50%', '75%']
+              }
+          },
+          series: [{
+              type: 'pie',
+              name: 'Challenge',
+              innerSize: '50%',
+              data: [
+                  ['Accepted',   gon.accepted],
+                  ['In Progress',      gon.in_progress],
+                  ['Completed', gon.completed],
+                 
+              ]
+          }]
+      });
+  });
+</script> 
+
+
 
 
 

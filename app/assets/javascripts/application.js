@@ -16,4 +16,5 @@
 //= require chosen.proto.min
 //= require angular
 //= require app
+//= require chartkick
 //= require_tree .
