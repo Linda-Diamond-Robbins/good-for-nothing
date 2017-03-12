@@ -25,6 +25,7 @@ class ChallengesController < ApplicationController
   end
 
   def create
+    params[:challenge][:user_id] = current_user.id
     @challenge = Challenge.new(challenge_params)
     
     if @challenge.save 
