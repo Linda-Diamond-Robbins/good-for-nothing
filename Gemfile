@@ -35,7 +35,7 @@ gem "chartkick"
 gem 'groupdate'
 gem 'hightop'
 gem 'gon'
-gem 'scoring_advice'
+gem 'scoring_advice', :path => '/Users/elliottrobbins/Actualize/good-for-nothing/scoring_advice'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "simple_calendar", "~> 2.0"
